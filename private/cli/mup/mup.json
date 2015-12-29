@@ -1,22 +1,22 @@
 {
   "servers": [
     {
-      "host": "hostname",
+      "host": "46.101.185.210",
       "username": "root",
       "password": "password"
     }
   ],
 
-  "setupMongo": __setupMongo__,
-  "setupNode": __setupNode__,
+  /*"setupMongo": __setupMongo__,
+  "setupNode": __setupNode__,*/
   "nodeVersion": "0.10.31",
-  "setupPhantom": false,
+  "setupPhantom": true,
 
-  "appName": "__appName__",
-  "app": "__appPath__",
+  "appName": "peyclon",
+  //"app": "",
 
   "env": {
-    "ROOT_URL": "__rootUrl__"
+    "ROOT_URL": "46.101.185.210"
   },
 
   "deployCheckWaitTime": 15
