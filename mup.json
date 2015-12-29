@@ -35,7 +35,7 @@
   // Configure environment
   "env": {
     "ROOT_URL": "46.101.185.210",
-    "MAIL_URL":"smtp://indiedes.contact:Beliebig12@smtp.gmail.com:587/",
+    "MAIL_URL":"smtp://indiedes.contact:Beliebig12@smtp.gmail.com:587/"
     //"MONGO_URL": "mongodb://habedieehre:Beliebig12@ds027495.mongolab.com:27495/indiedes"
   },
 
