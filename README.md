@@ -1,177 +1,134 @@
 # meteor-boilerplate
 
-This boilerplate is here to give you a starting point for your meteor projects, with a console tool to ease up some tasks. Essential atmosphere packages are included to give you features like routing and collection schemas out-of-the-box.  
+A starting point for MeteorJS applications. Includes iron-router, Bootstrap 3, Font Awesome, LESS and more.
 
-<!-- toc -->
+* [Included Packages](#included-packages)
+* [Installation](#installation)
+* [File Structure](#file-structure)
+* [Bootstrap and Less](#bootstrap-and-less)
+* [SEO](#seo)
+* [Favicons and Touch Icons](#favicons-and-touch-icons)
+* [Seed Data](#seed-data)
 
-* [Installing with orion-cli](#installing-with-orion-cli)
-* [How to use](#how-to-use)
-  * [Generating files](#generating-files)
-  * [Removing default code](#removing-default-code)
-  * [Available profiles (cofeescript and es6)](#available-profiles-cofeescript-and-es6)
-  * [Deployments](#deployments)
-  * [SEO and other concerns](#seo-and-other-concerns)
-  * [Adding allow rules for external URLs](#adding-allow-rules-for-external-urls)
-* [Structure](#structure)
-  * [Packages used](#packages-used)
-  * [Folder structure](#folder-structure)
-* [Other Awesome Boilerplates](#other-awesome-boilerplates)
-* [License](#license)
+## <a name="included-packages"></a> Included Packages
 
-<!-- toc stop -->
+* Collections:
+  * [dburles:collection-helpers](https://github.com/dburles/meteor-collection-helpers)
+  * [matb33:collection-hooks](https://github.com/matb33/meteor-collection-hooks)
+  * [reywood:publish-composite](https://github.com/englue/meteor-publish-composite)
+* Router:
+  * [iron:router](https://github.com/EventedMind/iron-router)
+  * [zimme:iron-router-active](https://github.com/zimme/meteor-iron-router-active)
+  * [yasinuslu:blaze-meta](https://github.com/yasinuslu/blaze-meta)
+* Authentication
+  * [splendido:accounts-templates-bootstrap](https://github.com/splendido/accounts-templates-bootstrap)
+  * [alanning:roles](https://github.com/alanning/meteor-roles)
+* Seed Data
+  * [dburles:factory](https://github.com/percolatestudio/meteor-factory)
+  * [anti:fake](https://github.com/anticoders/meteor-fake/)
+* [Less](http://lesscss.org)
+  * [Bootstrap](http://getbootstrap.com)
+  * [Font Awesome](http://fontawesome.io)
+* Misc:
+  * [Moment.js](http://momentjs.com/)
+  * [Underscore.js](http://underscorejs.org/)
+  * [Underscore.string](http://epeli.github.io/underscore.string/)
+  * [cunneen:mailgun](https://github.com/cunneen/meteor-mailgun)
 
-The boilerplate looks like following: [boilerplate.meteor.com](http://boilerplate.meteor.com). Have a look at [starthacking](http://starthacking.meteor.com/) for a project created with this boilerplate.
+## <a name="installation"></a> Installation
 
-## Installing with orion-cli
+1. Clone this repo to `<yourapp>`
 
-```bash
-npm install -g orion-cli
+  `git clone https://github.com/Differential/meteor-boilerplate.git <yourapp>`
+
+2. Remove `.git`
+
+  `cd <yourapp> && rm -rf .git`
+
+3. Start coding!
+
+## <a name="file-structure"></a> File Structure
+
+We have a common file structure we use across all of our Meteor apps. Client-only files are stored in the `client` directory, server-only files are stored in the `server` directory, and shared files are stored in the `both` directory. The `private` and `public` directories are for either private or public assets. 
+
+## <a name="bootstrap-and-less"></a> Bootstrap and LESS
+
+The majority of Bootstrap can be customized with LESS variables. If you look in `client/stylesheets/base/lib/bootstrap/variables.import.less` you will see a slew of configuration variables that can be tweaked to drastically change the look and feel of your site without having to write a single line of CSS.
+
+However we should avoid modifying the core Bootstrap Less files (in case we want to update them later), and should instead override the variables in our own LESS files.
+
+For example, to change the color of all primary buttons and links, simply add a `@brand-primary` variable to `stylesheets/base/variables.import.less`:
+
+```less
+// variables.import.less
+@brand-primary: #DC681D;
 ```
 
-This will install the [orion-cli](https://github.com/matteodem/orion-cli) tool, which can be used for scaffolding files with different profiles.
-You can still clone the repository, which doesn't give you the profile and scaffolding support.
+If you'd like to override a feature of Bootstrap that can't be modified using variables, simply create a new file in the `client/stylesheets/components` directory named after the corresponding Bootstrap component (eg. `buttons` in this case), and make your changes there.
 
-## How to use
-
-```sh
-# Assuming meteor is already installed
-orion create appName
-cd appName && meteor
+```less
+// buttons.import.less
+.btn {
+  text-transform: uppercase;
+}
 ```
 
-### Generating files
-
-With orion-cli you can scaffold files based on your configuration that you've got.
-
-```sh
-orion generate routes
+After your file is ready, you need to import it into `client/stylesheets/base/global.less`. So, you would add in this statement:
+```less
+@import '@{components}/buttons.import.less';
 ```
 
-You can create models, views, change profiles and reset the project with the console tool (see below).
+The reason that this is done is to avoid any issues when the LESS files are compiled into CSS. That way, if one component relies on another or you want a certain order for your components, you can avoid any issues.
 
+## <a name="seo"></a> SEO
 
-### Removing default code
+Page titles, meta descriptions and Facebook and Twitter meta tags are handled by the [yasinuslu:blaze-meta](https://github.com/yasinuslu/blaze-meta) package. Global settings are configured in `both/router/meta.js`, while individual page settings are set at the controller level.
 
-There's already a lot of predefined code in this boilerplate, to show you the possible functionality. However, if you want to start off with an
-empty project use the provided command to get rid off all the code you don't need.
-
-```sh
-orion reset
-```
-
-### Available profiles (coffeescript and es6)
-
-* default (Plain Vanilla Javascript)
-* coffee (coffeescript, Unfancy JavaScript)
-* es6 (traceur, Traceur is a JavaScript.next-to-JavaScript-of-today compiler)
-
-You can change your profile like that
-```sh
-orion set-profile
-```
-
-There will be a prompt, where you can enter __coffee__ or any other profile that you have specified. Also use the ```reset``` command to start off with blank files according to your profile.
-
-### Deployments
-
-It is highly recommended to use [Meteor Up](https://github.com/arunoda/meteor-up) for easy deployments. 
-Have a look at the repository for more information.
-
-### SEO and other concerns
-
-> Meteor cannot do SEO 
-
-This statement is only partially true, since there is a package called [ms-seo](https://github.com/DerMambo/ms-seo), which
-has a lot of neat little tricks to help web crawlers notice your app the way you want them to. This boilerplate also adds constants under
-__client/lib/constants.js__ for the app. Change SEO settings inside the routes like that.
+* Note: the `spiderable` package will need to be installed and configured on your server in order for bots to read your meta tags.
 
 ```javascript
-Router.route('/about', function () {
-  this.render('about');
-  // Using the app constants
-  SEO.set({ title: 'About -' + Meteor.App.NAME, og: {...} });
+PostsShowController = AppController.extend({
+  path: '/posts/:_id',
+  waitOn: function() {
+    return this.subscribe('post', params._id);
+  },
+  data: function() {
+    return {
+      post: Post.find({_id: params._id})
+    };
+  },
+  onAfterAction: function() {
+    if(this.ready()) {
+      Meta.setTitle(this.data().post.title);
+    }
+  }
 });
 ```
 
-### Adding allow rules for external URLs
+## <a name="favicons-and-touch-icons"></a> Favicons and Touch Icons
 
-The [browser-policy](https://atmospherejs.com/meteor/browser-policy) adds rules to deny all operations from external URLs.
-This helps dealing with clickjacking and other XSS methods used to attack the client. To whitelist a url, add following to 
-__server/config/security.js__
+Upload your image to http://realfavicongenerator.net/ and place the resulting images in `public/images/favicons`
+
+## Seed Data
+
+You can use the [dburles:factory](https://github.com/percolatestudio/meteor-factory) and [anti:fake](https://github.com/anticoders/meteor-fake/) packages to generate fake collection data for testing your UI. See `server/seeds.js` for an example:
 
 ```javascript
-BrowserPolicy.content.allowOriginForAll(YOUR_URL);
-```
+Meteor.startup(function() {
 
-Other security enforcing packages like [audit-argument-checks](https://docs.meteor.com/#/full/auditargumentchecks) and 
-[matteodem:easy-security](https://github.com/matteodem/meteor-easy-security) have also been added.
+  Factory.define('item', Items, {
+    name: function() { return Fake.sentence(); },
+    rating: function() { return _.random(1, 5); }
+  });
 
-## Structure
+  if (Items.find({}).count() === 0) {
 
-### Packages used
+    _(10).times(function(n) {
+      Factory.create('item');
+    });
 
-* Meteor Core
-  * meteor-platform
-* Routing
-  * [iron:router](https://github.com/EventedMind/iron-router)
-  * [zimme:iron-router-active](https://github.com/zimme/meteor-iron-router-active)
-* Collections
-  * [aldeed:collection2](https://github.com/aldeed/meteor-collection2)
-  * [dburles:collection-helpers](https://github.com/dburles/meteor-collection-helpers)
-* Accounts
-  * [accounts-password](https://github.com/meteor/meteor/tree/devel/packages/accounts-password)
-  * [useraccounts:semantic-ui](https://github.com/meteor-useraccounts/semantic-ui)
-* UI and UX
-  * [fastclick](https://github.com/meteor/meteor/tree/devel/packages/fastclick)
-  * [meteorhacks:fast-render](https://github.com/meteorhacks/fast-render)
-  * [natestrauser:animate-css](https://github.com/nate-strauser/meteor-animate-css/)
-  * [semantic:ui](https://github.com/Semantic-Org/Semantic-UI-Meteor/)
-* Security
-  * [browser-policy](https://github.com/meteor/meteor/tree/devel/packages/browser-policy)
-  * [audit-argument-checks](https://github.com/meteor/meteor/tree/devel/packages/audit-argument-checks)
-  * [matteodem:easy-security](https://github.com/matteodem/meteor-easy-security)
-* SEO
-  * [manuelschoebel:ms-seo](https://github.com/DerMambo/ms-seo)
-* Development
-  * [less](https://github.com/meteor/meteor/tree/devel/packages/less)
-  * [jquery](https://github.com/meteor/meteor/tree/devel/packages/jquery)
-  * [underscore](https://github.com/meteor/meteor/tree/devel/packages/underscore)
-  * [raix:handlebar-helpers](https://github.com/raix/Meteor-handlebar-helpers)
+  }
 
-The "insecure" and "autopublish" packages are removed by default (they make your app vulnerable).
-
-### Folder structure
+});
 
 ```
-client/ 				# Client folder
-    compatibility/      # Libraries which create a global variable
-    config/             # Configuration files (on the client)
-	lib/                # Library files that get executed first
-    startup/            # Javascript files on Meteor.startup()
-    stylesheets         # LESS files
-    modules/            # Meant for components, such as form and more(*)
-	views/			    # Contains all views(*)
-	    common/         # General purpose html templates
-model/  				# Model files, for each Meteor.Collection(*)
-private/                # Private files
-public/                 # Public files
-routes/                 # All routes(*)
-server/					# Server folder
-    fixtures/           # Meteor.Collection fixtures defined
-    lib/                # Server side library folder
-    publications/       # Collection publications(*)
-    startup/            # On server startup
-meteor-boilerplate		# Command line tool
-```
-
-(*) = the command line tool creates files in these folders
-
-## Other Awesome Boilerplates
-
-- [Void](https://github.com/SachaG/Void) by Sacha Greif
-- [meteor-jw-opinionated-skeleton](https://github.com/jamesdwilson/meteor-jw-opinionated-skeleton) by jamesdwilson (CoffeeScript)
-- [meteor-boilerplate](https://github.com/BeDifferential/meteor-boilerplate) by BeDifferential (CoffeeScript)
-- [em](https://github.com/EventedMind/em) by EventedMind (Boilerplate & Scaffolding)
-
-## License
-This boilerplate has an MIT License, see the LICENSE.txt for more information.
