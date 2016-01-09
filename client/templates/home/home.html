@@ -474,14 +474,14 @@
                       <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 large">
                           <div class="blueberry well overflow-show large" id="contact">
                               <h1>Haben Sie Fragen?</h1>
-                              <form id="tab">
+                              <form id="tab" action="MAILTO:info@peyclon.de?subject={{subject}}&body={{body}}" method="post" enctype="text/plain">
                                   <div class="outer-box">
-                                      <input type="text" placeholder="Vorname" value="" class="input-block-level bordered-input">
+                                      <!--input type="text"  placeholder="Vorname" value="" class="input-block-level bordered-input">
                                       <input type="text" placeholder="Nachname" value="" class="input-block-level bordered-input">
-                                      <input type="text" placeholder="E-Mail" value="" class="input-block-level bordered-input">
-                                      <input type="text" placeholder="Betreff" value="" class="input-block-level bordered-input">
-                                      <textarea placeholder="Nachricht" rows="3" class="input-block-level bordered-input"></textarea>
-                                      <button class="btn transparent btn-large pull-right">Abschicken</button>
+                                      <input type="text" placeholder="E-Mail" value="" class="input-block-level bordered-input"-->
+                                      <input type="text" id="subject" placeholder="Betreff" value="" class="input-block-level bordered-input">
+                                      <textarea placeholder="Nachricht" id="body" rows="10" class="input-block-level bordered-input"></textarea>
+                                      <button class="btn transparent btn-large pull-right sendButtonClicked">Abschicken</button>
                                   </div>
                               </form>
                           </div>
