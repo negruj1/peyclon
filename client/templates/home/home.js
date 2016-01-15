@@ -12,3 +12,22 @@ Template.home.rendered = function() {
 
 };
 
+Template.home.events({
+	"keyup #subject": function () {
+		Session.set('subject',$('#subject').val());
+	},
+	"keyup #body": function () {
+		Session.set('body',$('#body').val().replace(/(?:\r\n|\r|\n)/g, '%0D%0A'));
+	},
+})
+
+Template.home.helpers({
+	subject:function () {
+		return Session.get('subject');
+	},
+	body:function () {
+		return Session.get('body');
+	},
+
+});
+
