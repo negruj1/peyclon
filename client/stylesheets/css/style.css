@@ -18,7 +18,7 @@ a { color: #c5c5c5; }
 
 a:hover { 
 	text-decoration: none; 
-	color: #00c4ff; }
+	color: #99999E;; }
 
 div,
 input,
@@ -107,7 +107,7 @@ margin: 0 0 0;
 .orange { background: #D3643B; }
 .augmented-reality{
 	background: #CCC;
-	color:#4D4DB1;
+	color:#2441BC;
 }
 .web-developement{
 	background: #33878A none repeat scroll 0% 0%;
@@ -117,7 +117,7 @@ margin: 0 0 0;
 	color: #BFBFBF;
 }
 .indiedes{
-	background: #E7DC90;;
+	background: #D7CF9A;
 	color:#292D30;
 	font-family: "Oswald",sans-serif;
 }
