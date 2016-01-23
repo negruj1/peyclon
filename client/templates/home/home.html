@@ -1,11 +1,10 @@
 <template name="home">
   <div class="nav-section">
 
-    <ul class="nav">
+    <ul class="nav text-center">
       <li><a href="#home" class="scroll home">Home</a></li>
-      <li><a href="#about" class="scroll about">About</a></li>
-      <li><a href="#work" class="scroll work">Projekte</a></li>
       <li><a href="#contact" class="scroll contact">Kontakt</a></li>
+      <li><a href="#impressum" class="scroll work">Impressum</a></li>
     </ul>
   </div>
               <div class="panel"> <!--Panels for content -->
@@ -96,9 +95,6 @@
       </div>
     </div>
     
-      <div class="outside-projects text-right">
-      <h1>Aktuelle<br/>peyclon<br/>Projekte</h1>
-      </div>
 
     <div class="outer-box-2">
 
@@ -109,7 +105,9 @@
               <div class="flexslider" id="slider">
                 <ul class="slides">
                   <li>
+                  <a href="http://www.indiedes.de" class="pull-right">
                     <img src="/images/Indiedes-Bilder/Indiedes-Slider-4.jpg" alt="" class="img-width" />
+                  </a>
                   </li>
                  <!-- <li>
                     <img src="/images/Indiedes-Bilder/Indiedes-Slider-1.jpg" alt="" class="img-width" />
@@ -135,7 +133,7 @@
           <div class="row">
               <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4"> 
                 <div class="well web-developement shadow fixed-height"> <!-- Fixed height for 300px on all devices, shadow for a shadow and orange for the color -->
-                  <a href="http://www.peyclon.de" class="web-developement"><h1 style="font-size:33px">Webentwicklung</h1></a>
+                <h1 style="font-size:33px">Webentwicklung</h1>
                   <p class="big web-color">Wir entwicklen Webseitenprototypen für Ihre Bedürfnisse.</p>
                 </div>
               </div>
@@ -153,16 +151,11 @@
 </div>
 
 
-      <div class="outside-projects-old text-right">
-      <h1 class="text-right">Alte<br/>peyclon<br/>Projekte</h1>
-      </div>
-
-<div class="outer-box-2">
           <div class="row">
               <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 hidden-xs">
                 <div class="well no-padding fixed-height shadow click hidden-xs" id="blogtwo"> <!-- click used n clickable items -->
                   <div class="bp-post two">     
-                    <img src="/images/Peyclon-Bilder/Augmented-Reality.PNG" alt="" class="img-width" />
+                    <a href="http://www.trackframe.de" class=""><img src="/images/Peyclon-Bilder/Augmented-Reality.PNG" alt="" class="img-width" /></a>
                     <div class="title">
                       <h2></h2>
                   </div>
@@ -171,7 +164,7 @@
             </div>
             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4"> 
               <div class="well augmented-reality shadow fixed-height text-right"> <!-- Fixed height for 300px on all devices, shadow for a shadow and orange for the color -->
-                <a href="http://www.trackframe.de" class="augmented-reality"><h1 style="font-size:33px">Trackframe web</h1></a>
+                <a href="http://www.trackframe.de" class=""><img src="/images/Peyclon-Bilder/trackframe.png" alt="" class="trackframe-size pull-right" /></a><br/>
                 <p class="big ar-color">Ein Framework zur Integration unterschiedlicher Tracking-Technologien.</p>
               </div>
             </div>
@@ -180,7 +173,7 @@
         <div class="row">
           <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4"> 
             <div class="well augmented-reality shadow fixed-height"> <!-- Fixed height for 300px on all devices, shadow for a shadow and orange for the color -->
-              <a href="http://www.peyclon.de" class="augmented-reality"><h1 style="font-size:33px">Augmented Reality Lösungen</h1></a>
+              <h1 style="font-size:33px">Augmented Reality Lösungen</h1>
               <p class="big ar-color">Wir integrieren virtuelle Informationen in das Arbeitsumfeld des Anwenders.</p>
             </div>
           </div>
@@ -195,7 +188,7 @@
             </div>
           </div>
       </div>
-</div>
+
 
                   <!--
                   <div class="row">
@@ -500,24 +493,67 @@
                       </div>
                     </div> -->
                     <div class="row">
-                      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                        <div class="midplum well hidden-xs">
+                      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="midplum well hidden-xs" id="contact">
                           <h2>Kontaktieren Sie uns!</h2>
-                          <p class="kontakt">E-Mail: info@peyclon.de</p>
-                          <p class="kontakt">Telefon: +49-8091-5694-11</p>
-                          <p class="kontakt">Mobil: +49-173-3531196</p>
-                          <p class="kontakt">Fax: +49-8091-5694-1</p>
-                        </div>
-                        <div class="well redplum">
-                          <h2>Impressum</h2>
+                          <p class="impressum"><strong>Herausgeber, Konzeption und Design</strong></p>
                           <p class="impressum">peyclon integration GmbH</p>
-                          <p class="impressum">Geschäftsführer:</p>
-                          <p class="impressum">Georg Klinker</p>
                           <p class="impressum">Moos 2</p>
-                          <p class="impressum">D-85614 Kirchseeon</p>
+                          <p class="impressum">D-85614 Kirchseeon</p> <br/>
+                          <p class="impressum">Telefon: +49-8091-5694-11</p>
+                          <p class="impressum">Fax: +49-8091-5694-18</p> <br/>
+                          <p class="impressum"><strong>Email: info@peyclon.de</strong></p> <br/> <br/>
+                          <p class="impressum">Geschäftsführer und Gesellschafter: Georg Klinker </p>
+                          <p class="impressum">georg.klinker@peyclon.de</p> <br/>
+                          <p class="impressum">Gesellschafter: Prof. Gudrun Klinker</p>
+                          <p class="impressum">gudrun.klinker@peyclon.de</p> <br/>
+                        </div>
+                        <div class="well redplum" id="impressum">
+                          <h2>Impressum</h2> <br/>
+                          <p class="impressum"><strong>Angaben gemäß § 5 TMG: </strong></p>
+                          <p class="impressum">peyclon integration GmbH</p>
+                          <p class="impressum">Moos 2 </p>
+                          <p class="impressum">85614 Kirchseeon</p> <br/>
+                          <p class="impressum"><strong>Vertreten durch: </strong></p>
+                          <p class="impressum">Georg Klinker </p> <br/>
+                          <p class="impressum"><strong>Kontakt: </strong></p>
+                          <p class="impressum">Telefon: 08091-569411</p>
+                          <p class="impressum">Telefax: 08091-569418 </p>
+                          <p class="impressum">E-Mail: info@peyclon.de </p> <br/>
+                          <p class="impressum"><strong>Registereintrag: </strong></p>
+                          <p class="impressum">Eintragung im Handelsregister. </p>
+                          <p class="impressum">Registergericht: Amtsgericht München </p>
+                          <p class="impressum">Registernummer: HRB 145710 </p> <br/>
+                          <p class="impressum"><strong>Umsatzsteuer-ID: </strong></p>
+                          <p class="impressum">Umsatzsteuer-Identifikationsnummer gemäß §27 a Umsatzsteuergesetz:</p>
+                          <p class="impressum">DE 225844339 </p> <br/>
+                          <p class="impressum"><strong>Angaben zur Berufshaftpflichtversicherung: </strong></p>
+                          <p class="impressum">Name und Sitz der Gesellschaft: </p>
+                          <p class="impressum">HISCOX </p>
+                          <p class="impressum">Arnulfstraße 31 </p>
+                          <p class="impressum">80636 München </p>
+                          <p class="impressum">Geltungsraum der Versicherung: weltweit </p> <br/>
+                          <p class="impressum"><strong>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV: </strong></p>
+                          <p class="impressum">Jens Klinker </p>
+                          <p class="impressum">Moos 2</p>
+                          <p class="impressum">85614 Kirchseeon </p>
+                          
+                        </div>
+                        <div class="well blueberry">
+                          <h2>Haftungsausschluss (Disclaimer)</h2><br/>
+
+                          <p class="impressum"><strong>Haftung für Inhalte</strong></p>
+                          <p class="impressum">Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen</p><br/>
+
+                          <p class="impressum"><strong>Haftung für Links </strong></p>
+                          <p class="impressum">Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen. </p><br/>
+
+                          <p class="impressum"><strong>Urheberrecht </strong></p>
+                          <p class="impressum">Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet. Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen. </p><br/>
                         </div>
                       </div>
-                      <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 large">
+
+                     <!-- <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 large">
                         <div class="blueberry well overflow-show large" id="contact">
                           <h1>Haben Sie Fragen?</h1>
                           <form id="tab">
@@ -531,7 +567,7 @@
                             </div>
                           </form>
                         </div>
-                        </div>
+                        </div> -->
                     </div>
                   <!-- <div class="row"> 
                       <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 fixed-height">

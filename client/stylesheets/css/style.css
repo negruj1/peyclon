@@ -10,6 +10,7 @@ body {
 	color: #fff;
 	padding: 50px 0px;
 	padding-top:0px;
+	width:98%;
 }
 
 p { font-size: 25px; line-height: 1.5; }
@@ -70,7 +71,7 @@ margin: 0 0 0;
 	border: 0;
 	overflow: hidden;
 	position: relative;
-	height: 300px;	
+	height: auto;	
 	z-index: 1; /* Fix bug on webkit browsers */ }
 	
 .large { height: 620px; } /* Used for main content such as home, about, work and contact */
@@ -529,7 +530,7 @@ margin: 0 0 0;
 
 /* Menu */
 .nav {
-	width: 180px;
+	width: auto;
 	height: 300px;
     left:0;
     position: absolute;
@@ -1063,6 +1064,12 @@ input[placeholder], [placeholder], *[placeholder] { color: #fff !important; }
 	height: 50px;
 	width: 192px;
 	margin-right: -9px;
+}
+
+.trackframe-size {
+    height: 90px;
+    width: 250px;
+    margin-right: -9px;
 }
 
 .outer-box-2{
